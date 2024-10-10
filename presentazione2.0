@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #8b29b9;
+  color: white;
+  transform: rotateY(180deg);
+}
+</style>
+</head>
+<body>
+
+<h1>La mia foto</h1>
+
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="1727435600131.jpg" alt="Avatar" style="width:300px;height:300px;">
+    </div>
+    <div class="flip-card-back">
+      <h1>Federico Boggio Decasero</h1>
+      <p>Studente e Tifoso</p>
+      <p>Ragazzo da conoscere</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+
+<ul>
+    <li>  Mi chiamo Federico Boggio Decasero </li>
+    <br>
+    <li>  Ho 14 anni e ne compirò 15 a novembre </li>
+    <br>
+    <li>  Sono nato a Torino ma vivo a Nichelino </li>
+    <br>
+    <li>  La mia classe è la 2CIT </li>
+    </ul>
+    <br>
+    <h1>
+     Parliamo della mia vita.   
+    </h1>
+     <li> Ho scelto questo indirizzo, l'informatico perchè è un mondo che 
+      mi appassiona particolarmente , nel quale spero di
+     <br>
+    nel quale spero di entrarne a fare parte dopo il diploma. </li> 
+    <br>
+    <li> 
+    <li>Sono un ragazzo dolce che ha voglia di
+     impegnarsi,
+    <br>
+      cerco sempre di dare il mio meglio
+     a scuola per crearmi un futuro</li>
+    <li>Ho diverse passioni le principali sono lo stadio e andare in moto.</li>
+       <h1>
+    Una frase che mi suscita emozioni  
+    </h1>
+    <br>
+    "Le migliori emozioni sono quelle che non puoi spiegare"
+    </head>
+    </html>
