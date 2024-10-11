@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Computer</title>
+    <h1> Computer </h1>
+    <style>
+#miascatola1{background-color: rgb(141, 141, 141); width: 300px; height: 300px; margin:50px; padding:50px}
+#miascatola2{background-color: rgb(134, 134, 134); width: 300px; height: 300px; margin:50px; padding:50px}
+#miascatola3{background-color: rgb(139, 139, 139); width: 300px; height: 300px; margin:50px; padding:50px}
+#miascatola4{background-color: rgb(150, 150, 150); width: 300px; height: 300px; margin:50px; padding:50px}
+#scatolapiccola1{background-color: white; width:270px; height: 150px; margin: 7px; padding:7px; display: column}
+#scatolapiccola2{background-color: white; width:270px; height: 150px; margin: 7px; padding:7px; display: column}
+#scatolapiccola3{background-color: white; width:270px; height: 150px; margin: 7px; padding:7px; display: column}
+#scatolapiccola4{background-color: white; width:270px; height: 150px; margin: 7px; padding:7px; display: column}
+#scatolapiccola5{background-color: white; width:270px; height: 150px; margin: 7px; padding:7px; display: column}
+#scatolapiccola6{background-color: white; width:270px; height: 150px; margin: 7px; padding:7px; display: column}
+#scatolapiccola7{background-color: white; width:270px; height: 150px; margin: 7px; padding:7px; display: column}
+#scatolapiccola8{background-color: white; width:270px; height: 150px; margin: 7px; padding:7px; display: column}
+    
+    
+    
+    
+    </style>
+</head>
+<body>
+    
+</body>
+
+<div id="miascatola1">
+
+
+
+            <div id="scatolapiccola1">
+                <img src="primapagina.jpg" alt="Avatar" style="width:270px;height:150px;">
+            </div>
+                <div id="scatolapiccola2">
+
+                </div>
+</div>
+
+
+<div id="miascatola2">
+    
+             <div id="scatolapiccola3">
+               <img src="secondapagina.jpg" alt="Avatar" style="width:270px;height:150px;">
+            </div>
+                <div id="scatolapiccola4">
+
+                 </div>
+
+
+
+</div>
+<div id="miascatola3">
+                   
+          <div id="scatolapiccola5">
+               <img src="terzapagina.jpg" alt="Avatar" style="width:270px;height:150px;">
+          </div>
+                <div id="scatolapiccola6">
+
+                </div>
+
+
+</div>
+<div id="miascatola4">
+    
+           <div id="scatolapiccola7">
+                    <img src="quartapagina.jpg" alt="Avatar" style="width:270px;height:150px;">
+            </div>
+                   <div id="scatolapiccola8">
+
+                   </div>      
+
+
+
+</div> 
+
+
+</html>
