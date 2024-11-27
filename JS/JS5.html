@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calcola il dislivello</title>
 <style>
-    #miobottone1 {
+
+   #miobottone1 {
         display: inline-block;
         padding: 15px 25px;
         font-size: 24px;
@@ -27,92 +28,81 @@
         box-shadow: 0 5px #666;
         transform: translateY(4px);
         }
-
-    #container1{
+ #container1, #container2 {
         padding:20px;
         border:1px solid black;
-        background-image: url("mountain.jpg");
-        margin:10px;
-        height: 100%;
-        width: 90%;
-    }
-
-    label {
+        background-image: url('uu.jpg');
+        background-size: cover;
         color: white;
-        font-size: 25px;
+        margin:10px;
+        height: 500px;
+   
+        width: 500px;
     }
+   
 </style>
+
 </head>
 <body>
+
    <div id="container1">
-    <label for="input1"> primo valore</label>
-    <input id="input1" type="number"><br>
-    <label for="input2"> secondo valore</label>
-    <input id="input2" type="number">
+Inserisci i dati nella tabella e premi il tasto "calcola dislivello"
+    <p><label for="partenza">Partenza (m)</label></p>
+    <input id="partenza" type="text">
+    <p><label for="merenda">Pausa trekking (m)</label></p>
+    <input id="merenda" type="text">
+    <p><label for="arrivo">Arrivo (m)</label></p>
+    <input id="arrivo" type="text">
     <p>  </p>
-    <button onclick="calcolaRisultato()" id="miobottone1">Calcola</button>
+    <button onclick="calcola()"> Calcola dislivello</button>
     <p id="out1"></p>
    </div>
 
-   <center>
-    <div id="container1">
-        <h1 style="color: rgb(0, 0, 0);">Calcolo trekking</h1>
-        <label for="input1"> <h1 style="color: black;"> Orario di partenza: </label>
-        <input id="partenzaOre" type="number"><input id="partenzaMin" type="number"><br><br>
-        <label for="input2"> <h1 style="color: black;"> Cima: </label>
-        <input id="input2" type="number"><br><br>
-        <label for="input3"> <h1 style="color: black;"> Orario di ritorno: </label>
-        <input id="arrivoOre" type="number"><input id="arrivoMin" type="number"><br><br>
-        <p>  </p>
-        <button onclick="calcolaTempo();" id="miobottone1">Calcola</button>
-        <p id="outTempo"></p>
-       </div>
-   </center>
+ 
+ <div id="container2">
+     <p><label for="orarioPartenza">Orario partenza</label></p>
+        <input id="orarioPartenza" type="time">
+        <p><label for="orarioArrivo">Orario arrivo</label></p>
+        <input id="orarioArrivo" type="time">
+        <button onclick="calcolaTempo()">Calcola tempo</button>
+        <p id="out2" class="output"></p>
+    </div>
 
    <script>
-
-    function calcolaDifferenza(ora1, minuto1, ora2, minuto2) {
-        const minutiTotali1 = (ora1 * 60) + minuto1;
-        const minutiTotali2 = (ora2 * 60) + minuto2;
-
-        const differenza = Math.abs(minutiTotali1 - minutiTotali2);
-
-        return differenza;
+    function calcola(){
+        let i1;
+        let i2;
+        let i3;
+        let risultato;
+        i1 = parseInt(document.getElementById("partenza").value);
+        i2 = parseInt(document.getElementById("merenda").value);
+        i3 = parseInt(document.getElementById("arrivo").value);
+        risultato = i3 - i1;
+        document.getElementById("out1").innerHTML = risultato;
     }
+  function calcolaTempo() {
+            let partenza = document.getElementById("orarioPartenza").value.split(":");
+            let arrivo = document.getElementById("orarioArrivo").value.split(":");
 
-    function calcolaTempo(){
-        let startOre;
-        let startMin;
-        let arrivoOre;
-        let arrivoMin;
-        let percorso;
-        let differenza;
+            let orePartenza = parseInt(partenza[0]);
+            let minutiPartenza = parseInt(partenza[1]);
 
-        startOre = document.getElementById("partenzaOre").value;
-        startMin = document.getElementById("partenzaMin").value;
+            let oreArrivo = parseInt(arrivo[0]);
+            let minutiArrivo = parseInt(arrivo[1]);
 
-        arrivoOre = document.getElementById("arrivoOre").value;
-        arrivoMin = document.getElementById("arrivoMin").value;
+            let minutiTotaliPartenza = orePartenza * 60 + minutiPartenza;
+            let minutiTotaliArrivo = oreArrivo * 60 + minutiArrivo;
 
-        if (startMin > arrivoMin) {
-            document.getElementById("outTempo").innerHTML = "L'orario inserito non è valido";
-        } else if (startOre > arrivoOre) {
-                document.getElementById("outTempo").innerHTML = "L'orario inserito non è valido";
-        } else {
-            differenza = calcolaDifferenza(startOre, startMin, arrivoOre, arrivoMin);
-            document.getElementById("outTempo").innerHTML = "La sessione di trekking è durata " + differenza + " minuti";
-        }
-    }
-    function calcolaRisultato(){
-        let n;
-        let n2;
-        let res;
-        n=document.getElementById("input1").value;
-        n2=document.getElementById("input2").value;
-        res=n*n2;
-        document.getElementById("out1").innerHTML = res;
-    }
+            let differenzaMinuti = minutiTotaliArrivo - minutiTotaliPartenza;
+            let ore = Math.floor(differenzaMinuti / 60);
+            let minuti = differenzaMinuti % 60;
 
+            document.getElementById("out2").innerText = "Tempo di percorrenza: " + ore + " ore e " + minuti + " minuti.";
+     
+ 
+ 
+  }
+   
+   
    </script>
-</body>
-</html>
+   
