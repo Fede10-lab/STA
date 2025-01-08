@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <h2>P.S.: Inserire prima tutti dati e poi cliccare su invia</h2>
+    <h2>Dati Utente</h2>
+
+    <!-- Sezione età -->
+    <label for="eta">Inserisci la tua età:</label>
+    <input type="number" id="eta" placeholder="Età">
+    
+    <!-- Sezione città -->
+    <label for="citta">Inserisci la città dove abiti:</label>
+    <input type="text" id="citta" placeholder="Città">
+    
+    <!-- Sezione nome e sesso -->
+    <label for="nome">Inserisci il tuo nome:</label>
+    <input type="text" id="nome" placeholder="Nome">
+    <label for="sesso">Inserisci il tuo sesso (m o f):</label>
+    <input type="text" id="sesso" placeholder="Sesso">
+    
+    <!-- Sezione nascita -->
+    <label for="mese">Inserisci il mese di nascita:</label>
+    <input type="number" id="mese" placeholder="Mese di nascita">
+    <label for="anno">Inserisci l'anno di nascita:</label>
+    <input type="number" id="anno" placeholder="Anno di nascita">
+    
+    <!-- Sezione numero pari o dispari -->
+    <label for="numero">Inserisci un numero:</label>
+    <input type="number" id="numero" placeholder="Numero">
+    
+    <!-- Sezione distanza dal mare -->
+    <label for="distanza">Inserisci la distanza dal mare (in metri):</label>
+    <input type="number" id="distanza" placeholder="Distanza dal mare">
+    
+    <!-- Sezione valore casa -->
+    <label for="cittaCasa">Inserisci la città della casa (Genova, Savona, Imperia):</label>
+    <input type="text" id="cittaCasa" placeholder="Città">
+    <label for="mq">Inserisci i metri quadri della casa:</label>
+    <input type="number" id="mq" placeholder="Metri quadri">
+    <label for="distanzaCasa">Inserisci la distanza dal mare (in metri):</label>
+    <input type="number" id="distanzaCasa" placeholder="Distanza dal mare">
+    
+    <button onclick="verificaDati()">Verifica Dati</button>
+    <p id="output"></p>
+
+    <script>
+        function verificaDati() {
+            const eta = parseInt(document.getElementById('eta').value);
+            const citta = document.getElementById('citta').value;
+            const nome = document.getElementById('nome').value;
+            const sesso = document.getElementById('sesso').value.toLowerCase();
+            const mese = parseInt(document.getElementById('mese').value);
+            const anno = parseInt(document.getElementById('anno').value);
+            const numero = parseInt(document.getElementById('numero').value);
+            const distanza = parseInt(document.getElementById('distanza').value);
+            const cittaCasa = document.getElementById('cittaCasa').value;
+            const mq = parseInt(document.getElementById('mq').value);
+            const distanzaCasa = parseInt(document.getElementById('distanzaCasa').value);
+
+            const output = document.getElementById('output');
+
+            // Verifica età
+            let outputEta = eta >= 18 ? "Accedi al sistema" : `Puoi accedere al sistema tra ${18 - eta} anni`;
+
+            // Abitanti Torino e città vicine
+            const abitanti = {"Torino": "883.281", "Nichelino": "47.822", "Moncalieri": "57.518", "Vinovo": "14.851", 
+                              "Rivoli": "50.516", "Collegno": "48.435", "Settimo": "48.144", "Chieri": "36.835"};
+            let outputCitta = abitanti[citta] ? `Gli abitanti a ${citta} sono ${abitanti[citta]}` : "Informazione non disponibile";
+
+            // Saluto e aspettativa di vita
+            const aspettativaVita = {"m": 80.9, "f": 85.4};
+            let outputSaluto;
+            if (sesso === 'm' || sesso === 'f') {
+                outputSaluto = `Ciao ${nome}, la tua aspettativa di vita è ${aspettativaVita[sesso]} anni.`;
+            } else {
+                outputSaluto = `Ciao ${nome}, sesso non valido.`;
+            }
+
+            // Calcola età
+            const now = new Date();
+            let etaNascita = now.getFullYear() - anno;
+            if (now.getMonth() + 1 < mese) etaNascita -= 1;
+            let outputEtaNascita = `Numero del mese di nascita: ${mese}, Età: ${etaNascita} anni`;
+
+            // Numero pari o dispari
+            let outputNumero = numero % 2 === 0 ? "Il numero è pari" : "Il numero è dispari";
+
+            // Stima valore immobiliare
+            let costo_mq = distanza > 0 ? (distanza < 100 ? 10000 : 7000) : 0;
+            let outputValoreImmobiliare = `Il costo al metro quadro è ${costo_mq} euro`;
+
+            // Valore casa
+            const basePrezzo = {"Genova": 5000, "Savona": 7000, "Imperia": 6000};
+            let incremento = distanzaCasa < 100 ? 3000 : distanzaCasa < 500 ? 1500 : 500;
+            let valore_totale = mq * (basePrezzo[cittaCasa] + incremento);
+            let outputValoreCasa = `Il valore immobiliare della casa è ${valore_totale} euro`;
+
+            // Output finale
+            output.innerHTML = `
+                ${outputEta}<br>
+                ${outputCitta}<br>
+                ${outputSaluto}<br>
+                ${outputEtaNascita}<br>
+                ${outputNumero}<br>
+                ${outputValoreImmobiliare}<br>
+                ${outputValoreCasa}
+            `;
+        }
+      
+   
+   </script>
+</body>
+</html>
